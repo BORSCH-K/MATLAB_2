@@ -23,7 +23,7 @@ def energy_wane(array, i, e0, num):
         i1 -= 1
         i2 += 1
         e_temp = energy(array_temp, num)
-    return array, e, i1
+    return array, e
 
 
 def main():
@@ -48,8 +48,7 @@ def main():
     E1 = energy(AS1, int(N))
     print(E1)
 
-    AS1_n, E1_n, i = energy_wane(AS1, 32, E1, int(N))
-    print(i-1)
+    AS1_n, E1_n= energy_wane(AS1, 32, E1, int(N))
     # print(AS1_n, E1_n)
 
     fig1, ax1 = plt.subplots()
