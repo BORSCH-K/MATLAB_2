@@ -23,7 +23,7 @@ def energy_wane(array, i, e0, num):
         i1 -= 1
         i2 += 1
         e_temp = energy(array_temp, num)
-    return array, e
+    return array, e, i1
 
 
 def main():
@@ -35,7 +35,7 @@ def main():
     n = np.arange(0, N)
 
     y = A * np.sin(2 * np.pi * n / N + ph)
-    y1 = A * sg.square(2 * np.pi * n / N + ph, duty=0.5)
+    y1 = A * sg.square(2 * np.pi * n / N + ph, duty=0.9)
     y2 = A * sg.square(2 * np.pi * n / N + ph, duty=0.25)
 
     CS = np.fft.fft(y)
@@ -48,7 +48,8 @@ def main():
     E1 = energy(AS1, int(N))
     print(E1)
 
-    AS1_n, E1_n = energy_wane(AS1, 32, E1, int(N))
+    AS1_n, E1_n, i = energy_wane(AS1, 32, E1, int(N))
+    print(i-1)
     # print(AS1_n, E1_n)
 
     fig1, ax1 = plt.subplots()
