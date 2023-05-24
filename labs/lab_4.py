@@ -1,6 +1,5 @@
 import numpy as np
 from scipy import signal as sg
-import matplotlib.pyplot as plt
 
 
 def energy_x(array):
